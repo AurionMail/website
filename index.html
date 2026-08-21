@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html lang="en" class="dark scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AurionMail Suite — Open-Source Zero-Knowledge Mail & Productivity</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            purple: '#8B5CF6',
+                            pink: '#EC4899',
+                            blue: '#3B82F6',
+                            dark: '#0B0F19',
+                            card: '#111827',
+                            border: '#1F2937'
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .glow-purple {
+            box-shadow: 0 0 50px -10px rgba(139, 92, 246, 0.3);
+        }
+        .glow-pink {
+            box-shadow: 0 0 50px -10px rgba(236, 72, 153, 0.3);
+        }
+        .bg-gradient-aurion {
+            background: linear-gradient(135deg, #8B5CF6 0%, #EC4899 50%, #3B82F6 100%);
+        }
+        .text-gradient-aurion {
+            background-color: #A78BFA;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+    </style>
+</head>
+<body class="bg-[#090D16] text-slate-200 antialiased font-sans selection:bg-pink-500 selection:text-white">
+
+    <header class="sticky top-0 z-50 backdrop-blur-md bg-[#090D16]/80 border-b border-slate-800/80">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                <div class="flex items-center gap-3">
+                    <div class="w-8 h-8 rounded-xl p-0.5">
+                        <div class="w-full h-full rounded-[10px] flex items-center justify-center">
+                            <img src="https://raw.githubusercontent.com/AurionMail/.github/refs/heads/main/assets/circle_light.svg" alt="AurionMail Logo">
+                        </div>
+                    </div>
+                    <span class="text-2xl font-bold tracking-tight text-white">Aurion<span class="text-gradient-aurion">Mail</span></span>
+                </div>
+
+                <nav class="hidden md:flex items-center space-x-8 text-sm font-medium text-slate-300">
+                    <a href="#features" class="hover:text-pink-400 transition-colors">Features</a>
+                    <a href="#comparison" class="hover:text-purple-400 transition-colors">Comparison</a>
+                    <a href="#screenshots" class="hover:text-blue-400 transition-colors">Screenshots</a>
+                    <a href="#architecture" class="hover:text-pink-400 transition-colors">Architecture</a>
+                    <a href="#security" class="hover:text-purple-400 transition-colors">Security</a>
+                </nav>
+
+                <div class="flex items-center gap-4">
+                    <a href="https://github.com/AurionMail/docs/blob/main/install.md" target="_blank" class="hidden sm:inline-flex items-center gap-2 text-sm text-slate-300 hover:text-white transition-colors">
+                        <i class="fa-solid fa-[#090D16] fa-book text-slate-400"></i> Docs
+                    </a>
+                    <a href="https://github.com/AurionMail" target="_blank" class="relative group p-0.5 rounded-full bg-gradient-aurion transition-all duration-300 hover:shadow-lg hover:shadow-purple-500/30">
+                        <div class="px-5 py-2 rounded-full bg-slate-950 text-white font-medium text-sm flex items-center gap-2 group-hover:bg-opacity-90 transition-all">
+                            <i class="fa-brands fa-github text-lg"></i>
+                            <span>GitHub</span>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <section class="relative pt-24 pb-20 overflow-hidden">
+        <div class="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[350px] bg-purple-600/20 blur-[120px] rounded-full pointer-events-none"></div>
+        <div class="absolute top-1/3 left-1/3 w-[400px] h-[250px] bg-pink-600/15 blur-[100px] rounded-full pointer-events-none"></div>
+        <div class="absolute top-1/2 right-1/4 w-[450px] h-[300px] bg-blue-600/15 blur-[120px] rounded-full pointer-events-none"></div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
+            
+
+            <h1 class="text-4xl sm:text-6xl lg:text-7xl font-extrabold text-white tracking-tight leading-[1.15] max-w-4xl mx-auto">
+                End-to-End Encrypted Mail & Documents. <br/>
+                <span class="text-gradient-aurion">One Password. Zero Compromise.</span>
+            </h1>
+
+            <p class="mt-6 text-lg sm:text-xl text-slate-400 max-w-2xl mx-auto font-normal">
+                AurionMail Suite delivers a seamless Proton-like experience on a 100% open-source stack, orchestrating CryptPad and JMAP email into a unified workflow.
+            </p>
+
+            <div class="mt-10 flex flex-wrap justify-center gap-4">
+                <a href="https://github.com/AurionMail/orchestra" target="_blank" class="px-8 py-4 rounded-xl bg-gradient-aurion text-white font-semibold shadow-lg shadow-purple-500/25 hover:shadow-pink-500/40 hover:scale-[1.02] transition-all flex items-center gap-3">
+                    <i class="fa-solid fa-[#090D16] fa-rocket"></i> Deploy with Orchestra
+                </a>
+                <a href="https://github.com/AurionMail/docs/blob/main/install.md" target="_blank" class="px-8 py-4 rounded-xl bg-slate-900 border border-slate-800 text-slate-200 font-semibold hover:border-slate-700 hover:bg-slate-800/80 transition-all flex items-center gap-2">
+                    <i class="fa-solid fa-[#090D16] fa-book-open text-purple-400"></i> Read Documentation
+                </a>
+            </div>
+
+            <div class="mt-16 pt-8 border-t border-slate-800/60 max-w-4xl mx-auto flex flex-wrap items-center justify-center gap-6 sm:gap-10 text-xs sm:text-sm font-medium text-slate-400 uppercase tracking-wider">
+                <span class="flex items-center gap-2"><i class="fa-solid fa-[#090D16] fa-lock text-purple-400"></i> OpenPGP</span>
+                <span class="flex items-center gap-2"><i class="fa-solid fa-[#090D16] fa-file-shield text-pink-400"></i> CryptPad</span>
+                <span class="flex items-center gap-2"><i class="fa-solid fa-[#090D16] fa-envelope text-blue-400"></i> Bulwark Webmail</span>
+                <span class="flex items-center gap-2"><i class="fa-solid fa-[#090D16] fa-server text-purple-400"></i> Stalwart JMAP</span>
+                <span class="flex items-center gap-2"><i class="fa-solid fa-[#090D16] fa-key text-pink-400"></i> Ory Hydra</span>
+            </div>
+        </div>
+    </section>
+
+    <section id="comparison" class="py-20 bg-slate-950/50 border-y border-slate-800/50 relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl sm:text-4xl font-bold text-white">Why Choose <span class="text-gradient-aurion">AurionMail Suite</span>?</h2>
+                <p class="text-slate-400 mt-3 max-w-xl mx-auto">Bridge the gap between closed commercial clouds and fragmented self-hosted alternatives.</p>
+            </div>
+
+            <div class="overflow-x-auto rounded-2xl border border-slate-800 bg-slate-900/40 backdrop-blur-xl">
+                <table class="w-full text-left text-sm text-slate-300">
+                    <thead class="bg-slate-900/80 text-xs font-semibold text-slate-400 uppercase tracking-wider border-b border-slate-800">
+                        <tr>
+                            <th scope="col" class="py-5 px-6">Feature</th>
+                            <th scope="col" class="py-5 px-6">Proton Suite</th>
+                            <th scope="col" class="py-5 px-6">Nextcloud + Mail</th>
+                            <th scope="col" class="py-5 px-6">Standard CryptPad</th>
+                            <th scope="col" class="py-5 px-6 bg-purple-950/30 text-purple-300 font-bold border-l border-purple-500/20">AurionMail Suite</th>
+                        </tr>
+                    </thead>
+                    <tbody class="divide-y divide-slate-800/60">
+                        <tr class="hover:bg-slate-800/30 transition-colors">
+                            <td class="py-4 px-6 font-semibold text-white">100% Open Source & Self-Hosted</td>
+                            <td class="py-4 px-6 text-red-400"><i class="fa-solid fa-[#090D16] fa-xmark mr-1"></i> Proprietary Backend</td>
+                            <td class="py-4 px-6 text-emerald-400"><i class="fa-solid fa-[#090D16] fa-check mr-1"></i> Yes</td>
+                            <td class="py-4 px-6 text-emerald-400"><i class="fa-solid fa-[#090D16] fa-check mr-1"></i> Yes</td>
+                            <td class="py-4 px-6 text-emerald-400 font-bold bg-purple-950/20 border-l border-purple-500/20"><i class="fa-solid fa-[#090D16] fa-circle-check mr-1 text-purple-400"></i> Yes</td>
+                        </tr>
+                        <tr class="hover:bg-slate-800/30 transition-colors">
+                            <td class="py-4 px-6 font-semibold text-white">E2EE Email & Documents</td>
+                            <td class="py-4 px-6 text-emerald-400"><i class="fa-solid fa-[#090D16] fa-check mr-1"></i> Yes</td>
+                            <td class="py-4 px-6 text-amber-400"><i class="fa-solid fa-[#090D16] fa-triangle-exclamation mr-1"></i> Complex / Plugins</td>
+                            <td class="py-4 px-6 text-red-400"><i class="fa-solid fa-[#090D16] fa-xmark mr-1"></i> No built-in email</td>
+                            <td class="py-4 px-6 text-emerald-400 font-bold bg-purple-950/20 border-l border-purple-500/20"><i class="fa-solid fa-[#090D16] fa-circle-check mr-1 text-purple-400"></i> Yes</td>
+                        </tr>
+                        <tr class="hover:bg-slate-800/30 transition-colors">
+                            <td class="py-4 px-6 font-semibold text-white">Unified Single Password</td>
+                            <td class="py-4 px-6 text-emerald-400"><i class="fa-solid fa-[#090D16] fa-check mr-1"></i> Yes</td>
+                            <td class="py-4 px-6 text-red-400"><i class="fa-solid fa-[#090D16] fa-xmark mr-1"></i> Fragmented / Manual PGP</td>
+                            <td class="py-4 px-6 text-red-400"><i class="fa-solid fa-[#090D16] fa-xmark mr-1"></i> Docs scope only</td>
+                            <td class="py-4 px-6 text-emerald-400 font-bold bg-purple-950/20 border-l border-purple-500/20"><i class="fa-solid fa-[#090D16] fa-circle-check mr-1 text-purple-400"></i> Yes</td>
+                        </tr>
+                        <tr class="hover:bg-slate-800/30 transition-colors">
+                            <td class="py-4 px-6 font-semibold text-white">Open Standards (OpenPGP, JMAP)</td>
+                            <td class="py-4 px-6 text-amber-400"><i class="fa-solid fa-[#090D16] fa-triangle-exclamation mr-1"></i> Limited discovery</td>
+                            <td class="py-4 px-6 text-emerald-400"><i class="fa-solid fa-[#090D16] fa-check mr-1"></i> Yes</td>
+                            <td class="py-4 px-6 text-slate-500">N/A for email</td>
+                            <td class="py-4 px-6 text-emerald-400 font-bold bg-purple-950/20 border-l border-purple-500/20"><i class="fa-solid fa-[#090D16] fa-circle-check mr-1 text-purple-400"></i> Yes</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <section id="features" class="py-24 relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl sm:text-4xl font-bold text-white">Key Suite Features</h2>
+                <p class="text-slate-400 mt-3 max-w-xl mx-auto">Designed from the ground up for strict privacy, ease of use, and self-hosted control.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="p-8 rounded-2xl bg-slate-900/60 border border-slate-800 hover:border-purple-500/50 transition-all group duration-300 hover:shadow-xl hover:shadow-purple-500/10">
+                    <div class="w-12 h-12 rounded-xl bg-purple-500/10 border border-purple-500/20 flex items-center justify-center text-purple-400 mb-6 group-hover:bg-purple-500 group-hover:text-white transition-all">
+                        <i class="fa-solid fa-[#090D16] fa-key text-xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-2">Single Password Encryption</h3>
+                    <p class="text-slate-400 text-sm leading-relaxed">
+                        Authenticate once per session. Your master password derives client-side keys to decrypt both your emails and CryptPad documents simultaneously.
+                    </p>
+                </div>
+
+                <div class="p-8 rounded-2xl bg-slate-900/60 border border-slate-800 hover:border-pink-500/50 transition-all group duration-300 hover:shadow-xl hover:shadow-pink-500/10">
+                    <div class="w-12 h-12 rounded-xl bg-pink-500/10 border border-pink-500/20 flex items-center justify-center text-pink-400 mb-6 group-hover:bg-pink-500 group-hover:text-white transition-all">
+                        <i class="fa-solid fa-[#090D16] fa-right-from-bracket text-xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-2">Unified Logout Routines</h3>
+                    <p class="text-slate-400 text-sm leading-relaxed">
+                        Logging out from either Webmail or CryptPad instantly clears state and logs you out across all apps and active sessions globally.
+                    </p>
+                </div>
+
+                <div class="p-8 rounded-2xl bg-slate-900/60 border border-slate-800 hover:border-blue-500/50 transition-all group duration-300 hover:shadow-xl hover:shadow-blue-500/10">
+                    <div class="w-12 h-12 rounded-xl bg-blue-500/10 border border-blue-500/20 flex items-center justify-center text-blue-400 mb-6 group-hover:bg-blue-500 group-hover:text-white transition-all">
+                        <i class="fa-solid fa-[#090D16] fa-rotate text-xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-2">Key Synchronization</h3>
+                    <p class="text-slate-400 text-sm leading-relaxed">
+                        Seamlessly sync PGP and document encryption keys across authorized user devices without compromising Zero-Knowledge architecture.
+                    </p>
+                </div>
+
+                <div class="p-8 rounded-2xl bg-slate-900/60 border border-slate-800 hover:border-purple-500/50 transition-all group duration-300 hover:shadow-xl hover:shadow-purple-500/10">
+                    <div class="w-12 h-12 rounded-xl bg-purple-500/10 border border-purple-500/20 flex items-center justify-center text-purple-400 mb-6 group-hover:bg-purple-500 group-hover:text-white transition-all">
+                        <i class="fa-solid fa-[#090D16] fa-id-card text-xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-2">Account Provisioning</h3>
+                    <p class="text-slate-400 text-sm leading-relaxed">
+                        Sysadmins can provision LDAP accounts as they usually do. Users initialize their master password safely via <code class="text-purple-300 bg-purple-950/50 px-1.5 py-0.5 rounded">/init</code>.
+                    </p>
+                </div>
+
+                <div class="p-8 rounded-2xl bg-slate-900/60 border border-slate-800 hover:border-pink-500/50 transition-all group duration-300 hover:shadow-xl hover:shadow-pink-500/10">
+                    <div class="w-12 h-12 rounded-xl bg-pink-500/10 border border-pink-500/20 flex items-center justify-center text-pink-400 mb-6 group-hover:bg-pink-500 group-hover:text-white transition-all">
+                        <i class="fa-solid fa-[#090D16] fa-paint-roller text-xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-2">Modern Refreshed UI</h3>
+                    <p class="text-slate-400 text-sm leading-relaxed">
+                        CryptPad and Bulwark Webmail have been visually overhauled to deliver a sleek, modern, cohesive dark design theme across the entire suite.
+                    </p>
+                </div>
+
+                <div class="p-8 rounded-2xl bg-slate-900/30 border border-dashed border-slate-800 hover:border-blue-500/50 transition-all group duration-300">
+                    <div class="w-12 h-12 rounded-xl bg-slate-800 border border-slate-700 flex items-center justify-center text-slate-400 mb-6">
+                        <i class="fa-solid fa-[#090D16] fa-triangle-exclamation text-xl"></i>
+                    </div>
+                    <div class="flex items-center gap-2 mb-1">
+                        <span class="text-xs font-semibold uppercase tracking-wide text-blue-400 bg-blue-500/10 px-2 py-0.5 rounded">Roadmap</span>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-2">Emergency Account Safeguards</h3>
+                    <p class="text-slate-400 text-sm leading-relaxed">
+                        Upcoming features include dynamic emergency URLs for instant account hold or complete self-destruction upon compromise.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="screenshots" class="py-24 bg-slate-950/60 border-t border-slate-800/60">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl sm:text-4xl font-bold text-white">Suite <span class="text-gradient-aurion">Interface</span></h2>
+                <p class="text-slate-400 mt-3 max-w-xl mx-auto">Explore the clean, unified interface across email and document workspace.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div class="group rounded-2xl bg-slate-900 border border-slate-800 overflow-hidden hover:border-purple-500/50 transition-all">
+                    <div class="p-3 bg-slate-950/80 border-b border-slate-800 flex items-center justify-between text-xs text-slate-400">
+                        <span class="flex items-center gap-2"><i class="fa-solid fa-[#090D16] fa-right-to-bracket text-purple-400"></i> SSO Login</span>
+                        <span class="font-mono text-[10px]">sso.domain/login</span>
+                    </div>
+                    <div class="p-2 bg-slate-950/30 min-h-[220px] flex items-center justify-center relative overflow-hidden">
+                        <img src="https://raw.githubusercontent.com/AurionMail/docs/refs/heads/main/screenshots/login.png" alt="Login Screenshot" class="rounded-lg object-cover w-full h-auto group-hover:scale-105 transition-transform duration-300" onerror="this.onerror=null; this.parentElement.innerHTML='<div class=\'text-center py-12 text-slate-500\'><i class=\'fa-regular fa-image text-4xl mb-2 block\'></i>Login UI Screen</div>'">
+                    </div>
+                    <div class="p-4 border-t border-slate-800/60">
+                        <p class="text-xs font-semibold text-slate-300">Single Sign-On & Client-Side Key Derivation</p>
+                    </div>
+                </div>
+
+                <div class="group rounded-2xl bg-slate-900 border border-slate-800 overflow-hidden hover:border-pink-500/50 transition-all">
+                    <div class="p-3 bg-slate-950/80 border-b border-slate-800 flex items-center justify-between text-xs text-slate-400">
+                        <span class="flex items-center gap-2"><i class="fa-solid fa-[#090D16] fa-envelope text-pink-400"></i> Webmail Client</span>
+                        <span class="font-mono text-[10px]">mail.domain</span>
+                    </div>
+                    <div class="p-2 bg-slate-950/30 min-h-[220px] flex items-center justify-center relative overflow-hidden">
+                        <img src="https://raw.githubusercontent.com/AurionMail/docs/refs/heads/main/screenshots/mails.png" alt="Mails Screenshot" class="rounded-lg object-cover w-full h-auto group-hover:scale-105 transition-transform duration-300" onerror="this.onerror=null; this.parentElement.innerHTML='<div class=\'text-center py-12 text-slate-500\'><i class=\'fa-regular fa-image text-4xl mb-2 block\'></i>Encrypted Email UI</div>'">
+                    </div>
+                    <div class="p-4 border-t border-slate-800/60">
+                        <p class="text-xs font-semibold text-slate-300">Bulwark Webmail with Seamless OpenPGP</p>
+                    </div>
+                </div>
+
+                <div class="group rounded-2xl bg-slate-900 border border-slate-800 overflow-hidden hover:border-blue-500/50 transition-all">
+                    <div class="p-3 bg-slate-950/80 border-b border-slate-800 flex items-center justify-between text-xs text-slate-400">
+                        <span class="flex items-center gap-2"><i class="fa-solid fa-[#090D16] fa-file-lines text-blue-400"></i> CryptPad Drive</span>
+                        <span class="font-mono text-[10px]">drive.domain</span>
+                    </div>
+                    <div class="p-2 bg-slate-950/30 min-h-[220px] flex items-center justify-center relative overflow-hidden">
+                        <img src="https://raw.githubusercontent.com/AurionMail/docs/refs/heads/main/screenshots/cryptpad.png" alt="CryptPad Screenshot" class="rounded-lg object-cover w-full h-auto group-hover:scale-105 transition-transform duration-300" onerror="this.onerror=null; this.parentElement.innerHTML='<div class=\'text-center py-12 text-slate-500\'><i class=\'fa-regular fa-image text-4xl mb-2 block\'></i>CryptPad Drive UI</div>'">
+                    </div>
+                    <div class="p-4 border-t border-slate-800/60">
+                        <p class="text-xs font-semibold text-slate-300">Refreshed Modern CryptPad Integration</p>
+                    </div>
+                </div>
+
+                <div class="group rounded-2xl bg-slate-900 border border-slate-800 overflow-hidden hover:border-purple-500/50 transition-all">
+                    <div class="p-3 bg-slate-950/80 border-b border-slate-800 flex items-center justify-between text-xs text-slate-400">
+                        <span class="flex items-center gap-2"><i class="fa-solid fa-[#090D16] fa-key text-purple-400"></i> Aurion Key Manager</span>
+                        <span class="font-mono text-[10px]">plugin/keys</span>
+                    </div>
+                    <div class="p-2 bg-slate-950/30 min-h-[220px] flex items-center justify-center relative overflow-hidden">
+                        <img src="https://raw.githubusercontent.com/AurionMail/docs/refs/heads/main/screenshots/keys.png" alt="Keys Screenshot" class="rounded-lg object-cover w-full h-auto group-hover:scale-105 transition-transform duration-300" onerror="this.onerror=null; this.parentElement.innerHTML='<div class=\'text-center py-12 text-slate-500\'><i class=\'fa-regular fa-image text-4xl mb-2 block\'></i>Keys Management UI</div>'">
+                    </div>
+                    <div class="p-4 border-t border-slate-800/60">
+                        <p class="text-xs font-semibold text-slate-300">OpenPGP Key Management & Password Sync</p>
+                    </div>
+                </div>
+
+                <div class="group rounded-2xl bg-slate-900 border border-slate-800 overflow-hidden hover:border-pink-500/50 transition-all">
+                    <div class="p-3 bg-slate-950/80 border-b border-slate-800 flex items-center justify-between text-xs text-slate-400">
+                        <span class="flex items-center gap-2"><i class="fa-solid fa-[#090D16] fa-[#090D16] fa-gear text-pink-400"></i> Settings & Security</span>
+                        <span class="font-mono text-[10px]">settings</span>
+                    </div>
+                    <div class="p-2 bg-slate-950/30 min-h-[220px] flex items-center justify-center relative overflow-hidden">
+                        <img src="https://raw.githubusercontent.com/AurionMail/docs/refs/heads/main/screenshots/settings.png" alt="Settings Screenshot" class="rounded-lg object-cover w-full h-auto group-hover:scale-105 transition-transform duration-300" onerror="this.onerror=null; this.parentElement.innerHTML='<div class=\'text-center py-12 text-slate-500\'><i class=\'fa-regular fa-image text-4xl mb-2 block\'></i>Settings UI</div>'">
+                    </div>
+                    <div class="p-4 border-t border-slate-800/60">
+                        <p class="text-xs font-semibold text-slate-300">CryptPad & Email Preferences</p>
+                    </div>
+                </div>
+
+                <div class="group rounded-2xl bg-slate-900 border border-slate-800 overflow-hidden hover:border-blue-500/50 transition-all">
+                    <div class="p-3 bg-slate-950/80 border-b border-slate-800 flex items-center justify-between text-xs text-slate-400">
+                        <span class="flex items-center gap-2"><i class="fa-solid fa-[#090D16] fa-shield text-blue-400"></i> Session Control</span>
+                        <span class="font-mono text-[10px]">logout</span>
+                    </div>
+                    <div class="p-2 bg-slate-950/30 min-h-[220px] flex items-center justify-center relative overflow-hidden">
+                        <img src="https://raw.githubusercontent.com/AurionMail/docs/refs/heads/main/screenshots/logout.png" alt="Logout Screenshot" class="rounded-lg object-cover w-full h-auto group-hover:scale-105 transition-transform duration-300" onerror="this.onerror=null; this.parentElement.innerHTML='<div class=\'text-center py-12 text-slate-500\'><i class=\'fa-regular fa-image text-4xl mb-2 block\'></i>Logout UI</div>'">
+                    </div>
+                    <div class="p-4 border-t border-slate-800/60">
+                        <p class="text-xs font-semibold text-slate-300">Clean Session Teardown & Purge</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="architecture" class="py-24 relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl sm:text-4xl font-bold text-white">Modular Architecture</h2>
+                <p class="text-slate-400 mt-3 max-w-xl mx-auto">Explore the sub-modules comprising the AurionMail ecosystem.</p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+    <a href="https://github.com/aurionMail/sso" target="_blank" class="p-6 rounded-xl bg-slate-900/80 border border-slate-800 hover:border-purple-500/50 transition-all flex items-start gap-4">
+        <div class="w-12 h-12 shrink-0 rounded-lg bg-purple-500/10 text-purple-400 flex items-center justify-center">
+            <i class="fa-solid fa-user-lock text-xl"></i>
+        </div>
+        <div>
+            <h4 class="text-white font-bold text-base flex items-center gap-2">SSO App <i class="fa-solid fa-arrow-up-right-from-square text-xs text-slate-500"></i></h4>
+            <p class="text-slate-400 text-xs mt-1">Frontend for authentication and Zero-Knowledge key derivation.</p>
+        </div>
+    </a>
+
+    <a href="https://github.com/AurionMail/orchestra" target="_blank" class="p-6 rounded-xl bg-slate-900/80 border border-purple-500/40 hover:border-purple-400 transition-all flex items-start gap-4 relative overflow-hidden">
+        <div class="absolute top-0 right-0 bg-purple-500 text-white text-[10px] font-bold px-2 py-0.5 rounded-bl">Single Binary</div>
+        <div class="w-12 h-12 shrink-0 rounded-lg bg-purple-500/10 text-purple-400 flex items-center justify-center">
+            <i class="fa-solid fa-cubes text-xl"></i>
+        </div>
+        <div>
+            <h4 class="text-white font-bold text-base flex items-center gap-2">Orchestra <i class="fa-solid fa-arrow-up-right-from-square text-xs text-slate-500"></i></h4>
+            <p class="text-slate-400 text-xs mt-1">All-in-one binary covering Hydra, SSO, Bulwark, Bridges, & CryptPad.</p>
+        </div>
+    </a>
+
+    <a href="https://github.com/AurionMail/bulwark-pgp-plugin" target="_blank" class="p-6 rounded-xl bg-slate-900/80 border border-slate-800 hover:border-pink-500/50 transition-all flex items-start gap-4">
+        <div class="w-12 h-12 shrink-0 rounded-lg bg-pink-500/10 text-pink-400 flex items-center justify-center">
+            <i class="fa-solid fa-plug text-xl"></i>
+        </div>
+        <div>
+            <h4 class="text-white font-bold text-base flex items-center gap-2">PGP Plugin <i class="fa-solid fa-arrow-up-right-from-square text-xs text-slate-500"></i></h4>
+            <p class="text-slate-400 text-xs mt-1">Extension enabling end-to-end OpenPGP mail encryption in Bulwark.</p>
+        </div>
+    </a>
+
+    <a href="https://github.com/AurionMail/core-api/" target="_blank" class="p-6 rounded-xl bg-slate-900/80 border border-slate-800 hover:border-blue-500/50 transition-all flex items-start gap-4">
+        <div class="w-12 h-12 shrink-0 rounded-lg bg-blue-500/10 text-blue-400 flex items-center justify-center">
+            <i class="fa-solid fa-network-wired text-xl"></i>
+        </div>
+        <div>
+            <h4 class="text-white font-bold text-base flex items-center gap-2">Core API <i class="fa-solid fa-arrow-up-right-from-square text-xs text-slate-500"></i></h4>
+            <p class="text-slate-400 text-xs mt-1">Central orchestrator for key syncing, session state, and inter-app communication.</p>
+        </div>
+    </a>
+
+    <a href="https://github.com/AurionMail/bridges/" target="_blank" class="p-6 rounded-xl bg-slate-900/80 border border-slate-800 hover:border-purple-500/50 transition-all flex items-start gap-4">
+        <div class="w-12 h-12 shrink-0 rounded-lg bg-purple-500/10 text-purple-400 flex items-center justify-center">
+            <i class="fa-solid fa-bridge text-xl"></i>
+        </div>
+        <div>
+            <h4 class="text-white font-bold text-base flex items-center gap-2">Bridges <i class="fa-solid fa-arrow-up-right-from-square text-xs text-slate-500"></i></h4>
+            <p class="text-slate-400 text-xs mt-1">Lightweight bridge scripts for secure secret sharing during auth routines.</p>
+        </div>
+    </a>
+
+    <a href="https://github.com/AurionMail/cryptpad_customized/" target="_blank" class="p-6 rounded-xl bg-slate-900/80 border border-slate-800 hover:border-pink-500/50 transition-all flex items-start gap-4">
+        <div class="w-12 h-12 shrink-0 rounded-lg bg-pink-500/10 text-pink-400 flex items-center justify-center">
+            <i class="fa-solid fa-pen-to-square text-xl"></i>
+        </div>
+        <div>
+            <h4 class="text-white font-bold text-base flex items-center gap-2">CryptPad Customized <i class="fa-solid fa-arrow-up-right-from-square text-xs text-slate-500"></i></h4>
+            <p class="text-slate-400 text-xs mt-1">Customized CryptPad with embedded SSO integration and refined UI styling.</p>
+        </div>
+    </a>
+</div>
+        
+        </div>
+    </section>
+
+    <section id="security" class="py-20 bg-slate-950/80 border-t border-slate-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="p-8 sm:p-12 rounded-3xl bg-gradient-to-r from-purple-950/30 via-slate-900 to-blue-950/30 border border-purple-500/20 relative overflow-hidden">
+                <div class="max-w-3xl">
+                    <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-purple-500/10 text-purple-300 text-xs font-semibold mb-4 border border-purple-500/20">
+                        <i class="fa-solid fa-[#090D16] fa-shield-halved"></i> Security Model
+                    </div>
+                    <h2 class="text-2xl sm:text-3xl font-bold text-white mb-4">Zero-Knowledge & Ephemeral Secret Sharing</h2>
+                    <p class="text-slate-300 text-sm leading-relaxed mb-6">
+                        Secrets are kept strictly in client RAM using Argon2id and HKDF derivation. Cross-origin secret transfers use non-extractable AES-GCM keys with server-side ephemeral RAM storage (5-minute max TTL with Burn-on-Read guarantees).
+                    </p>
+                    <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 text-xs font-mono">
+                        <div class="p-3 rounded-lg bg-slate-950/60 border border-slate-800">
+                            <span class="text-purple-400 block font-bold mb-1">Argon2id</span>
+                            Client-side hashing
+                        </div>
+                        <div class="p-3 rounded-lg bg-slate-950/60 border border-slate-800">
+                            <span class="text-pink-400 block font-bold mb-1">HKDF SHA-256</span>
+                            Domain-isolated sub-keys
+                        </div>
+                        <div class="p-3 rounded-lg bg-slate-950/60 border border-slate-800">
+                            <span class="text-blue-400 block font-bold mb-1">AES-GCM 256</span>
+                            In-memory wrapping
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="border-t border-slate-800 bg-[#060911] py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row items-center justify-between gap-6">
+                <div class="flex items-center gap-3">
+                    <div class="w-8 h-8 rounded-lg bg-gradient-aurion p-0.5">
+                        <div class="w-full h-full bg-slate-950 rounded-[6px] flex items-center justify-center">
+                            <i class="fa-solid fa-[#090D16] fa-shield-halved text-transparent bg-clip-text bg-gradient-aurion text-sm"></i>
+                        </div>
+                    </div>
+                    <span class="text-lg font-bold text-white">Aurion<span class="text-gradient-aurion">Mail</span></span>
+                </div>
+
+                <div class="flex flex-wrap items-center gap-6 text-sm text-slate-400">
+                    <a href="https://github.com/AurionMail" target="_blank" class="hover:text-white transition-colors">GitHub</a>
+                    <a href="https://github.com/AurionMail/docs/blob/main/install.md" target="_blank" class="hover:text-white transition-colors">Installation Guide</a>
+                    <a href="https://docs.cryptpad.org/" target="_blank" class="hover:text-white transition-colors">CryptPad Docs</a>
+                    <a href="https://github.com/bulwarkmail/webmail/" target="_blank" class="hover:text-white transition-colors">Bulwark Mail</a>
+                </div>
+
+                <p class="text-xs text-slate-500">
+                    Free & Open-Source Software under MIT / GNU Licenses.
+                </p>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
